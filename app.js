@@ -67,10 +67,10 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration');
-  if(duration.value<=0){
-    alert("Please enter more than 0 second");
-    return selectItem();
+  const duration = document.getElementById('duration').value||1000;
+  if(duration<=0){
+    alert('Please insert the value which is more than 1000')
+    return;
   }
   else{
     sliders.forEach(slide => {
@@ -85,7 +85,7 @@ const createSlider = () => {
     timer = setInterval(function () {
       slideIndex++;
       changeSlide(slideIndex);
-    }, duration);
+    }, duration.value);
   }
   
 }
